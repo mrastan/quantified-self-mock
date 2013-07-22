@@ -1,0 +1,81 @@
+<script type="text/javascript" src="js/jquery.sparkline.min.js"></script>
+
+<style type="text/css">
+
+.profile-welcome-msg,
+.profile-welcome-desc {
+	color: #000;
+	font-weight: 200;
+	vertical-align: middle;
+}
+.profile-avatar {
+	border-radius: 28px;
+}
+.profile-welcome-msg {
+	text-align: left;
+	padding-left: 1em;
+}
+.qs-spark-last-val {
+	font-weight: 600;
+	color: #376b79;
+	font-size: 200%;
+}
+
+.profile-score {
+	margin-top: 1em;
+}
+</style>
+
+<script type="text/javascript">
+$(function() {
+ 	var data = [39, 42, 46, 52, 48, 54, 58, 62, 59, 58, 61];
+
+    $('.qs-spark-line').sparkline(data, {
+		width: 220,
+		height: 60,
+		lineColor: '#2FABE9',
+		fillColor: '#f2f7f9',
+		spotColor: '#467e8c',
+		maxSpotColor: '#b9e672',
+		minSpotColor: '#FA5833',
+		spotRadius: 5,
+		lineWidth: 1
+    }); 
+});
+</script>
+
+
+<div class="qs-box" id="qs-user-profile">
+
+	<div class="pure-g">
+		<div class="pure-u-1-2">		    			
+			<h4 class="qs-box-title">Profile</h4>
+		</div>
+	
+		<div class="pure-u-1-2 qs-box-controls" id="qs-box-profile">
+			<a class="ui-selected" href="#">Info</a>
+			<a class="" href="#">Settings</a>
+		</div>
+	</div>
+
+	<div class="qs-box-content">
+		<div class="pure-g">
+			<div class="pure-u-1-5"><img class="profile-avatar" src="images/tom-avatar.png" height="56" width="56" ></div>
+			<div class="pure-u-4-5"><h1 class="profile-welcome-msg">Hello Tom!</h1>	</div>
+		</div>
+
+		<div class="pure-g profile-score">
+			<div class="pure-u-1-4">
+			<p class="profile-welcome-desc">
+				Your life quality <b>score</b> today:
+			</p>
+			</div>
+			<div class="pure-u-3-4">
+				<span class="qs-spark-line"></span>
+				<span class="qs-spark-last-val">61</span>
+			</div>
+		</div>
+
+	</div>
+
+</div> 
