@@ -8,7 +8,8 @@
 	<script src="js/jquery.knob.js"></script>
 
 	<link rel="stylesheet" type="text/css" href="css/jquery.gridster.min.css">
-	<link rel="stylesheet" type="text/css" href="css/pure-min.css"> 	
+	<link rel="stylesheet" type="text/css" href="css/pure-min.css"> 
+	<!-- <link rel="stylesheet" type="text/css" href="css/animate.min.css"> -->
 
 	<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css"> 
 	<link rel="stylesheet" type="text/css" href="css/glyphicons.css">
@@ -24,6 +25,7 @@
 			margin:auto;
 			width: 80%;
 			padding-top: 1em;
+			left: -100%;
 		}
 
 		.gridster .gs_w {
@@ -37,21 +39,22 @@
 
 		/* Widget box */ 
 		.qs-box {}
-		.qs-box-title { margin: 1em 1em; }
+		.qs-box-title { margin: 1em; }
 		.qs-box-title span {
 			color: #555;
 			font-size: 80%;
 			font-weight: normal;
 		}
 		.qs-box-content {
-			color: #666;
-			width: 80%;
+			color: #555;
+			width: 90%;
 			text-align: center;
 			position: relative;
 			margin:auto;
 		}
 
 		/* Circle meter widget */
+		
 		.qs-meter .meter-unit,
 		.qs-meter .meter-value,
 		.qs-meter .meter-desc, 
@@ -72,7 +75,6 @@
 			text-align: center;
 			color: #ef6520;
 		}
-		
 		.qs-meter .meter-unit {
 			top: 95px;
 			font-size: 12px;
@@ -115,7 +117,7 @@
 			border-bottom: 5px solid #CFCFCF;
 		}
 		.menu-profile {
-			right: 1px;
+			right: 1em;
 			top: 1px;
 			position: absolute;						
 			padding-right: 1em;
@@ -141,20 +143,23 @@
 	                <li class="pure-menu-selected"><a href="#">Home</a></li>
 	                <li><a href="#">Blog</a></li>
 	                <li><a href="#">About</a></li>
-	            </ul>
 
+	            </ul>
                <div class="menu-profile">
-	           		<a href="#">Michal  &#x25BE;</a>
-	                <img class="menu-profile-avatar" alt="Tilo Mitra's avatar" src="http://purecss.io/img/common/tilo-avatar.png" height="26" width="26">            
+	           		<a href="#">Tom  &#x25BE;</a>
+	           		<img class="menu-profile-avatar" alt="Tilo Mitra's avatar" src="images/tom-avatar.png" height="26" width="26"></img>
                </div>
 	        </div>
 	    </div>
 
 	    <div class="pure-g">
 		<div class="pure-u-1">
-			<div class="gridster" id="dashboard" >
+			<div class="gridster" id="dashboard">
 			<ul>
 				<li data-row="1" data-col="1" data-sizex="2" data-sizey="1">
+			    	<% include box/qs-user-profile %>
+			    </li>
+				<li data-row="3" data-col="1" data-sizex="2" data-sizey="1">
 					<% include box/qs-activity %>
 				</li>
 			    <li data-row="2" data-col="1" data-sizex="1" data-sizey="1">
@@ -166,52 +171,23 @@
 			    <li data-row="1" data-col="3" data-sizex="2" data-sizey="1">
 			    	<% include box/qs-map %>		
 			    </li>
-
+				<li data-row="2" data-col="3" data-sizex="1" data-sizey="1">
+					<% include box/qs-life-balance %>
+			    </li>
+			    <li data-row="1" data-col="5" data-sizex="1" data-sizey="2">
+			    	<% include box/qs-activities-breakedown %>
+			    </li>
 			    <li data-row="2" data-col="4" data-sizex="1" data-sizey="2">
-			    	<div class="qs-box pure-g">
-			    		<div class="pure-u-1">
-			    			<h4 class="qs-box-title">Leaderboard</h4>
-			    		</div>
-			    		<div class="qs-box-content">
-		    				<p class="maki-icon building"></p>
-   			    			<p class="maki-icon industrial"></p>
-							<p class="maki-icon grocery"></p>
-							<p class="maki-icon cafe"></p>
-							<p class="maki-icon pitch"></p>
-							<p class="maki-icon tennis"></p>
-						</div>
-			    	</div> 
+			    	<% include box/qs-recommendations %>
 			    </li>
 
-			    <li data-row="2" data-col="3" data-sizex="1" data-sizey="1">
+			    <li data-row="3" data-col="3" data-sizex="1" data-sizey="1">
 			    	<div class="qs-box pure-g">
 			    		<div class="pure-u-1">
-			    			<h4 class="qs-box-title">Steps</h4>
+			    			<h4 class="qs-box-title">Your Top Apps</h4>
 			    		</div>
 			    	</div> 
 			    </li>		
-
-
-			    <li data-row="3" data-col="3" data-sizex="1" data-sizey="1">
-				    <div class="qs-box pure-g">
-			    		<div class="pure-u-1">
-			    			<h4 class="qs-box-title">Active vs Sedentary</h4>
-			    		</div>
-			    	</div> 
-			    </li>
-
-			    <li data-row="3" data-col="1" data-sizex="2" data-sizey="1">
-			    	<div class="qs-box pure-g">
-			    		<div class="pure-u-1-2">		    			
-			    			<h4 class="qs-box-title">Profile</h4>
-			    		</div>
-
-						<div class="pure-u-1-2 qs-box-controls" id="qs-box-profile">
-							<a class="ui-selected" href="#">Info</a>
-							<a class="" href="#">Settings</a>
-			    		</div>	
-			    	</div> 
-			    </li>
 
 			</ul>
 			</div>					
@@ -228,20 +204,31 @@ $(function(){
     });
  	var gridster = $(".gridster ul").gridster().data('gridster');
 
+ 	//animate UI
+ 	$('.gridster').animate({
+ 		left: 0
+ 	}, 300);
+ 	// $('.gridster').css({left:0}).addClass('animated bounceInLeft');
+
  	// UI basic elements 
 	$( "#qs-box-activity" ).selectable();
 	$( "#qs-box-profile" ).selectable();
 
 	// Knobs 
-	$("#qs-calories input.dial").knob({
+	$("#qs-calories .dial").knob({
             'readOnly': true,
             'displayInput': false
             });
-
-	$("#qs-distance input.dial").knob({
+	
+	$("#qs-distance .dial").knob({
             'readOnly': true,
             'displayInput': true
             });  
+
+	$('#qs-life-balance .dial').knob({
+		'readOnly': true,
+		'displayInput': true
+	});
 
 });
 

@@ -10,20 +10,35 @@
 <style type="text/css">
 #map { 
 	position:absolute; 
-	width: 100%; 
-	height: 100%;
+	width: 410px; 
+	height: 200px;
 }
+.leaflet-popup-content-wrapper, .leaflet-popup-tip {
+    background: rgba(255,255,255,0.8);
+    box-shadow:0 1px 2px rgba(0,0,0,0.3);
+}
+.leaflet-popup-content {
+    margin: 0.5em;
+}
+.popup {
+    color: #333;
+    text-align: center;
+}
+.popup h3 {
+    margin: 0.5em;
+}
+
 </style>
 
-<div class="qs-box" id='map'></div>
+<div class="qs-box"><div id='map'></div></div>
 
 <script type='text/javascript'>
 
 var getActivityColor = d3.scale.ordinal().range(colorbrewer.Dark2[8]);
 
 var map = L.mapbox.map('map', 'mrastan.map-yqc0qxly')
-    .setView([46.945, 7.575], 12);
-//map.dragging.disable();
+    .setView([46.935, 7.445], 10);
+map.dragging.disable();
 
 // POI layer 
 var markerLayer = L.mapbox.markerLayer().addTo(map);
@@ -35,12 +50,12 @@ markerLayer.on('layeradd', function(e) {
 
     var popupContent =  '<div class="popup">' +
                         //'<img src="' + img_url + '">' +
-                        '   <h2>' + feature.properties.title + '</h2>' +
+                        '   <h3>' + feature.properties.title + '</h3>' +
                         '</div>';
 
     marker.bindPopup(popupContent,{
         closeButton: false,
-        minWidth: 50
+        minWidth: 30
     });
 });
 markerLayer.setGeoJSON(qs_poi_bern);
@@ -57,23 +72,28 @@ geoPath.eachLayer(function(layer) {
     patterns: [
             {offset: 0, repeat: 11, symbol: new L.Symbol.Dash({
                                                 pixelSize: 0,
-                                                pathOptions: {weight: 6, color: activity_color, opacity: 1}
+                                                pathOptions: {weight: 8, color: activity_color, opacity: 0.8}
                                               })}
         ]
   }).addTo(map);
 });
 
+
+
 // Cycle over markers
 function cycle(markers) {
+
     var i = 0;
     function run() {
+        
         if (++i > markers.length - 1) i = 0;
-        //map.setView(markers[i].getLatLng(), 13);
         markers[i].openPopup();
+
+        map.setView(markers[i].getLatLng(), 13, {pan: {animate: true}, zoom: { animate: true }});
         window.setTimeout(run, 3000);
     }
     run();
 }
 
-//cycle(markerLayer.getLayers());
+cycle(markerLayer.getLayers());
 </script>

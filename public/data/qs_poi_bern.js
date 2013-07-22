@@ -4,6 +4,23 @@ var qs_poi_bern = [
     geometry: {
         type: 'Point',
         "coordinates": [
+           7.4184322357177725,
+          46.92646906715277
+        ]
+    },
+    properties: {
+        title: 'Sport',
+        description: '',
+        "marker-symbol": "pitch",
+        'marker-size': 'medium',
+        'marker-color': '#00ccae'
+    }
+},
+{
+    type: 'Feature',
+    geometry: {
+        type: 'Point',
+        "coordinates": [
           7.4334096908569345,
           46.931802939487135
         ]
@@ -55,23 +72,6 @@ var qs_poi_bern = [
     geometry: {
         type: 'Point',
         "coordinates": [
-            7.459609508514404,
-            46.94802841907868
-        ]
-    },
-    properties: {
-        title: 'Cafe',
-        description: '',
-        "marker-symbol": "cafe",
-        'marker-size': 'medium',
-        'marker-color': '#00ccae'
-    }
-},
-{
-    type: 'Feature',
-    geometry: {
-        type: 'Point',
-        "coordinates": [
             7.494864463806152,
             46.95758559845286
         ]
@@ -89,14 +89,14 @@ var qs_poi_bern = [
     geometry: {
         type: 'Point',
         "coordinates": [
-           7.4184322357177725,
-          46.92646906715277
+            7.459609508514404,
+            46.94802841907868
         ]
     },
     properties: {
-        title: 'Sport',
+        title: 'Cafe',
         description: '',
-        "marker-symbol": "pitch",
+        "marker-symbol": "cafe",
         'marker-size': 'medium',
         'marker-color': '#00ccae'
     }
