@@ -1,0 +1,28 @@
+<script src="http://maps.google.com/maps/api/js?sensor=false&libraries=geometry&v=3.7"></script>
+<script src="js/maplace.min.js"></script>		
+<script src="js/mapstyles.js"></script>	
+	
+<script src="data/poi.js"></script>		
+
+<style type="text/css">
+	#gmap { width: 100%; height: 100%;}
+</style>
+
+<div id="gmap"></div>
+
+<script type="text/javascript">
+
+$(function(){ 
+new Maplace({
+	map_div: '#gmap',
+	show_markers: false,
+	locations: zrh_poi,
+	styles: gMapStyles,
+	map_options: gMapOptions,
+	type: 'directions',
+	directions_panel: '#gmap-route',
+	directions_options: {travelMode: google.maps.TravelMode.WALKING},
+	afterRoute: function() {}
+}).Load(); 
+});
+</script>

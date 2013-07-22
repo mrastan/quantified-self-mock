@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<script src="js/jquery-1.9.0.min.js"></script>
+	<script src="js/jquery-ui.js"></script>
+	<script src="js/jquery.gridster.with-extras.js"></script>
+	<script src="js/jquery.knob.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="css/jquery.gridster.min.css">
+	<link rel="stylesheet" type="text/css" href="css/pure-min.css"> 	
+
+	<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css"> 
+	<link rel="stylesheet" type="text/css" href="css/glyphicons.css">
+	<link rel="stylesheet" type="text/css" href="css/maki-sprite.css">
+
+	<style type="text/css">
+		body {
+			background: #BFBFBF;
+			color: #333;
+		}
+
+		.gridster {
+			margin:auto;
+			width: 80%;
+			padding-top: 1em;
+		}
+
+		.gridster .gs_w {
+			background: #FFF;			
+			box-shadow: 0 0 5px rgba(0,0,0,0.3);
+		}
+
+		.gridster ul {
+			list-style: none;
+		}
+
+		/* Widget box */ 
+		.qs-box {}
+		.qs-box-title { margin: 1em 1em; }
+		.qs-box-title span {
+			color: #555;
+			font-size: 80%;
+			font-weight: normal;
+		}
+		.qs-box-content {
+			color: #666;
+			width: 80%;
+			text-align: center;
+			position: relative;
+			margin:auto;
+		}
+
+		/* Circle meter widget */
+		.qs-meter .meter-unit,
+		.qs-meter .meter-value,
+		.qs-meter .meter-desc, 
+		.qs-meter .meter-icon {
+			position: absolute;			
+			width: 100%;
+			left: 0;
+			text-align: center;
+		}
+		.qs-meter .meter-icon {
+			top: 50px;
+			padding: 0;
+		}
+		.qs-meter .meter-icon i:before { 
+			font-size: 42px; 
+			width: 100%;
+			left: 0;
+			text-align: center;
+			color: #ef6520;
+		}
+		
+		.qs-meter .meter-unit {
+			top: 95px;
+			font-size: 12px;
+		}		
+		.qs-meter .meter-value {
+			top: 110px;
+			font-size: 150%;
+			font-weight: bold;
+		} 
+		.qs-meter .meter-desc {
+			top: 135px;
+			font-size: 80%;
+		}
+
+		/* Widget upper control */ 
+		.qs-box-controls {			
+			text-align: right;
+		}		
+		.qs-box-controls a {
+			width: 30%;
+			text-align: center;
+			padding-top: 0.4em;			
+			font-size: 80%;
+			font-weight: 600;	
+			display: inline-block;						
+			border-top: 5px solid transparent;
+			text-decoration: none;
+			color: #333;
+		}
+		.qs-box-controls a.ui-selecting { border-top-color: #1b98f8; }
+		.qs-box-controls a.ui-selected { border-top-color: #878787; }		
+		.qs-box-controls a:hover, 
+		.qs-box-controls a:focus {
+			color: #1b98f8;
+			border-top-color: #1b98f8;
+		}
+
+		/* Nav menu */
+		.header .pure-menu {
+			border-bottom: 5px solid #CFCFCF;
+		}
+		.menu-profile {
+			right: 1px;
+			top: 1px;
+			position: absolute;						
+			padding-right: 1em;
+		}
+		.menu-profile a {
+			display: inline-block;
+		}
+		
+		.menu-profile-avatar {
+			border-radius: 13px;
+			text-align: right;
+		}
+
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<div class="header">
+	        <div class="pure-menu pure-menu-open pure-menu-horizontal">	            
+	            <a class="pure-menu-heading" href="">Life Tracker</a>	            
+	            <ul>
+	                <li class="pure-menu-selected"><a href="#">Home</a></li>
+	                <li><a href="#">Blog</a></li>
+	                <li><a href="#">About</a></li>
+	            </ul>
+
+               <div class="menu-profile">
+	           		<a href="#">Michal  &#x25BE;</a>
+	                <img class="menu-profile-avatar" alt="Tilo Mitra's avatar" src="http://purecss.io/img/common/tilo-avatar.png" height="26" width="26">            
+               </div>
+	        </div>
+	    </div>
+
+	    <div class="pure-g">
+		<div class="pure-u-1">
+			<div class="gridster" id="dashboard" >
+			<ul>
+				<li data-row="1" data-col="1" data-sizex="2" data-sizey="1">
+					<% include box/qs-activity %>
+				</li>
+			    <li data-row="2" data-col="1" data-sizex="1" data-sizey="1">
+			    	<% include box/qs-calories %>
+			    </li>
+			    <li data-row="2" data-col="2" data-sizex="1" data-sizey="1">
+					<% include box/qs-distance %>					
+			    </li>
+			    <li data-row="1" data-col="3" data-sizex="2" data-sizey="1">
+			    	<% include box/qs-map %>		
+			    </li>
+
+			    <li data-row="2" data-col="4" data-sizex="1" data-sizey="2">
+			    	<div class="qs-box pure-g">
+			    		<div class="pure-u-1">
+			    			<h4 class="qs-box-title">Leaderboard</h4>
+			    		</div>
+			    		<div class="qs-box-content">
+		    				<p class="maki-icon building"></p>
+   			    			<p class="maki-icon industrial"></p>
+							<p class="maki-icon grocery"></p>
+							<p class="maki-icon cafe"></p>
+							<p class="maki-icon pitch"></p>
+							<p class="maki-icon tennis"></p>
+						</div>
+			    	</div> 
+			    </li>
+
+			    <li data-row="2" data-col="3" data-sizex="1" data-sizey="1">
+			    	<div class="qs-box pure-g">
+			    		<div class="pure-u-1">
+			    			<h4 class="qs-box-title">Steps</h4>
+			    		</div>
+			    	</div> 
+			    </li>		
+
+
+			    <li data-row="3" data-col="3" data-sizex="1" data-sizey="1">
+				    <div class="qs-box pure-g">
+			    		<div class="pure-u-1">
+			    			<h4 class="qs-box-title">Active vs Sedentary</h4>
+			    		</div>
+			    	</div> 
+			    </li>
+
+			    <li data-row="3" data-col="1" data-sizex="2" data-sizey="1">
+			    	<div class="qs-box pure-g">
+			    		<div class="pure-u-1-2">		    			
+			    			<h4 class="qs-box-title">Profile</h4>
+			    		</div>
+
+						<div class="pure-u-1-2 qs-box-controls" id="qs-box-profile">
+							<a class="ui-selected" href="#">Info</a>
+							<a class="" href="#">Settings</a>
+			    		</div>	
+			    	</div> 
+			    </li>
+
+			</ul>
+			</div>					
+		</div>	
+		<div>	
+	</div>
+
+<script type="text/javascript">
+
+$(function(){ 
+    $(".gridster ul").gridster({
+        widget_margins: [5, 5],
+        widget_base_dimensions: [200, 200]
+    });
+ 	var gridster = $(".gridster ul").gridster().data('gridster');
+
+ 	// UI basic elements 
+	$( "#qs-box-activity" ).selectable();
+	$( "#qs-box-profile" ).selectable();
+
+	// Knobs 
+	$("#qs-calories input.dial").knob({
+            'readOnly': true,
+            'displayInput': false
+            });
+
+	$("#qs-distance input.dial").knob({
+            'readOnly': true,
+            'displayInput': true
+            });  
+
+});
+
+</script>
+</body>
+</html>
