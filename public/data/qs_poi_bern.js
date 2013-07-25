@@ -89,8 +89,8 @@ var qs_poi_bern = [
     geometry: {
         type: 'Point',
         "coordinates": [
-            7.459609508514404,
-            46.94802841907868
+            7.445640563964844,
+            46.95784922059009
         ]
     },
     properties: {
