@@ -1,59 +1,137 @@
 <style type="text/css">
-
-.qs-list {
+#qs-activities-breakedown .qs-box-title {
+	/*margin-bottom: 0.2em;*/
 }
-.qs-list .item {
-	width: 100%;
-	border-bottom: 1px solid #ddd;
+.qs-item {
+	padding: 0.1em;
+	border-top: 1px dotted #ddd;
+	/*border: 1px dotted;*/
 }
-
-.qs-list .item p {
-	display: inline-block;		
+.qs-item-icon {
+	position: relative;
+	left: -0.4em;
+	width: 40px;
+	height: 30px;
+	margin: 0;
 }
-
-.qs-list .item .time {
-	text-align: right;
-	font-size: 110%;
+.qs-item-icon * {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -12px;
+	margin-left: -12px;	
+	height: 24px;
+	width: 24px;
+}
+.qs-item-title,
+.qs-item-desc {
+	font-size: 80%;
 	font-weight: 600;
-	color: #222;
 }
+.qs-item-title {
+	text-align: left;
+}
+.qs-item-desc {
+	text-align: right;
+}
+
 
 </style>
 
-<div class="qs-box">
-	<h4 class="qs-box-title">Activities</h4>
-	<div class="qs-box-content qs-list">
-		<div class="item">
+<div class="qs-box" id="qs-activities-breakedown">
+	<h4 class="qs-box-title">Top activities</h4>
 
-			<p class="maki-icon industrial"></p>
-			<p class="time" style="color:#ee2705">8h 45m</p>
+	<div class="qs-box-content-full" id="list">
+		<div class="pure-g qs-item">
+			<div class="pure-u qs-item-icon">
+				<p class="maki-icon industrial"></p>	
+			</div>
+			<div class="pure-u-3-4">
+				<div class="pure-g">
+					<div class="pure-u-1-2 qs-item-title">Work</div>
+					<div class="pure-u-1-2 qs-item-desc"
+						style="color: #ee2705">9h 10m</div>
+				</div>
+				<div class="pure-g">
 
-			<div class="progress">
-  				<div class="bar" style="width: 60%;"></div>
+				<div class="progress">
+	  				<div class="bar bar-danger" style="width: 90%;"></div>
+				</div>				
+				
+				</div>
 			</div>
 		</div>
-		<div class="item">
-			<p class="maki-icon building"></p>	
-			<p class="time" style="color:#eb5b1f">8h 10m</p>
-		</div> 
-		<div class="item">
-			<p class="maki-icon bus"></p>	
-			<p class="time" style="color:#f6c94e">2 h 10m</p>
-		</div> 
-		<div class="item">
-			<p class="maki-icon pitch"></p>
-			<p class="time" style="color:#8ac726">0 h 55m</p>
-		</div>	
-		<div class="item">
-			<p class="maki-icon grocery"></p>
-			<p class="time" style="color:#8ac726">0h 30m</p>
+
+		<div class="pure-g qs-item">
+			<div class="qs-item-icon pure-u">
+				<p class="maki-icon building"></p>	
+			</div>
+			<div class="pure-u-3-4">
+				<div class="pure-g">
+					<div class="pure-u-1-2 qs-item-title">Sleep</div>
+					<div class="pure-u-1-2 qs-item-desc"
+						style="color: #f6c94e">7h 30m</div>
+				</div>
+				<div class="pure-g">
+					<div class="progress">
+	  				<div class="bar bar-warning" style="width: 60%;"></div>
+					</div>
+				</div>
+			</div>
 		</div>
-<!-- 		<div class="item">
-			<p class="maki-icon cafe"></p>
+
+		<div class="pure-g qs-item">
+			<div class="qs-item-icon pure-u">
+				<p class="maki-icon bus"></p>	
+			</div>
+			<div class="pure-u-3-4">
+				<div class="pure-g">
+					<div class="pure-u-1-2 qs-item-title">Transportation</div>
+					<div class="pure-u-1-2 qs-item-desc" 
+						style="color:#f6c94e">2h 10m</div>
+				</div>
+				<div class="pure-g">
+					<div class="progress">
+	  				<div class="bar bar-warning" style="width: 35%;"></div>
+					</div>
+				</div>
+			</div>
 		</div>
-		
-		<div class="item">
-			<p class="maki-icon tennis"></p>
-		</div>	 -->			
+
+		<div class="pure-g qs-item">
+			<div class="qs-item-icon pure-u">
+				<p class="maki-icon pitch"></p>	
+			</div>
+			<div class="pure-u-3-4">
+				<div class="pure-g">
+					<div class="pure-u-1-2 qs-item-title">Sport</div>
+					<div class="pure-u-1-2 qs-item-desc" 
+						style="color:#8ac726">1h 10m</div>
+				</div>
+				<div class="pure-g">
+					<div class="progress">
+	  				<div class="bar bar-success" style="width: 20%;"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+<!-- 
+		<div class="pure-g qs-item">
+			<div class="qs-item-icon pure-u">
+				<p class="maki-icon grocery"></p>	
+			</div>
+			<div class="pure-u-3-4">
+				<div class="pure-g">
+					<div class="pure-u-1-2 qs-item-title">Grocery</div>
+					<div class="pure-u-1-2 qs-item-desc" 
+						style="color:#8ac726">0h 30m</div>
+				</div>
+				<div class="pure-g">
+					<div class="progress">
+	  				<div class="bar bar-success" style="width: 10%;"></div>
+					</div>
+				</div>
+			</div>
+		</div> -->
 	</div>
 </div> 

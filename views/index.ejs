@@ -2,6 +2,7 @@
 <html>
 
 <head>
+	<title>QS</title>
 	<script src="js/jquery-1.9.0.min.js"></script>
 	<script src="js/jquery-ui.js"></script>
 	<script src="js/jquery.gridster.with-extras.js"></script>
@@ -9,6 +10,7 @@
 
 	<link rel="stylesheet" type="text/css" href="css/jquery.gridster.min.css">
 	<link rel="stylesheet" type="text/css" href="css/pure-min.css"> 
+	<link rel="stylesheet" type="text/css" href="css/bootstarp-progress_bar.css">
 	<!-- <link rel="stylesheet" type="text/css" href="css/animate.min.css"> -->
 
 	<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css"> 
@@ -67,15 +69,16 @@
 		}
 		.qs-meter .meter-icon {
 			top: 50px;
+
 			padding: 0;
 		}
-		.qs-meter .meter-icon i:before { 
+		.qs-meter .meter-icon i { 
+			left:0;
+						text-align: center;
+
 			font-size: 42px; 
-			width: 100%;
-			left: 0;
-			text-align: center;
-			color: #ef6520;
-		}
+		}		
+
 		.qs-meter .meter-unit {
 			top: 95px;
 			font-size: 12px;
@@ -168,27 +171,32 @@
 			    </li>
 			    <li data-row="2" data-col="2" data-sizex="1" data-sizey="1">
 					<% include box/qs-distance %>					
-			    </li>
-			    <li data-row="1" data-col="3" data-sizex="2" data-sizey="1">
-			    	<% include box/qs-map %>		
-			    </li>
-				<li data-row="2" data-col="3" data-sizex="1" data-sizey="1">
+			    </li>			   
+				<li data-row="3" data-col="3" data-sizex="1" data-sizey="1">
 					<% include box/qs-life-balance %>
 			    </li>
-			    <li data-row="1" data-col="5" data-sizex="1" data-sizey="2">
+			    <li data-row="2" data-col="5" data-sizex="1" data-sizey="1">
 			    	<% include box/qs-activities-breakedown %>
 			    </li>
-			    <li data-row="2" data-col="4" data-sizex="1" data-sizey="2">
+			    <li data-row="2" data-col="3" data-sizex="2" data-sizey="1">
 			    	<% include box/qs-recommendations %>
 			    </li>
+			     <li data-row="1" data-col="3" data-sizex="3" data-sizey="1">
+			    	<% include box/qs-map %>		
+			    </li>
 
-			    <li data-row="3" data-col="3" data-sizex="1" data-sizey="1">
+<!-- 			    <li data-row="3" data-col="3" data-sizex="1" data-sizey="1">
 			    	<div class="qs-box pure-g">
 			    		<div class="pure-u-1">
 			    			<h4 class="qs-box-title">Your Top Apps</h4>
 			    		</div>
 			    	</div> 
-			    </li>		
+			    </li>	 -->	
+
+<!-- 				<li data-row="4" data-col="1" data-sizex="3" data-sizey="1">
+					<% include box/qs-heatmap %>
+				</li> -->
+
 
 			</ul>
 			</div>					
@@ -197,6 +205,27 @@
 	</div>
 
 <script type="text/javascript">
+
+var animateKnob = function(elmId, startVal, stopVal, color) {
+	var knobEl = $(elmId).find('.dial');
+	var knobIcon = $(elmId).find('.meter-icon *');
+	knobIcon.css('color', color);
+
+    knobEl.knob({
+    	'readOnly': true,
+    	'displayInput': false,
+    	'fgColor': color
+    });
+
+    $({ value: startVal }).animate({ value: stopVal }, {
+      	duration: 1000,
+      	easing: 'swing',
+      	step: function() {
+        	knobEl.val(Math.ceil(this.value)).trigger('change');
+        	//$(elm).attr('fgColor', 'red').trigger('change');
+      	}
+    });
+};
 
 $(function(){ 
     $(".gridster ul").gridster({
@@ -215,22 +244,8 @@ $(function(){
 	$( "#qs-box-activity" ).selectable();
 	$( "#qs-box-profile" ).selectable();
 
-	// Knobs 
-	$("#qs-calories .dial").knob({
-            'readOnly': true,
-            'displayInput': false
-            });
-	
-	$("#qs-distance .dial").knob({
-            'readOnly': true,
-            'displayInput': true
-            });  
-
-	$('#qs-life-balance .dial').knob({
-		'readOnly': true,
-		'displayInput': true
-	});
-
+	setTimeout('listTick()', 300);
+	setTimeout('listTick()', 4000);
 });
 
 </script>

@@ -6,11 +6,16 @@
 		data-width="160" data-height="160"
 		data-linecap=round data-angleArc=250 data-angleOffset=-125
 		data-thickness=".2"
-		data-cursor=false 
-		data-fgColor="#66CC66"
-		value="35">
-		
+		data-cursor=false>
+
+	<span class="meter-icon"><i class="glyphicon-rabbit"></i></span>		
 	<span class="meter-value">25.1</span>
 	<span class="meter-desc">90 km left</span>
 	</div>
 </div>
+
+<script type="text/javascript">
+$( function(){
+	animateKnob('#qs-distance', 0, 35, "#66CC66");
+});
+</script>

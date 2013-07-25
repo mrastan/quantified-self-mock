@@ -6,13 +6,17 @@
 		data-width="160" data-height="160"
 		data-linecap=round data-angleArc=250 data-angleOffset=-125
 		data-thickness=".2"
-		data-cursor=false  
-		data-fgColor="#ef6520"
-		value="75">
-	<span class="meter-unit"></span>
-	
-	<span class="glyphicons fire meter-icon"><i></i></span>
+		data-cursor=false>
+
+	<span class="meter-unit"></span>	
+	<span class="meter-icon"><i class="glyphicon-fire"></i></span>		
 	<span class="meter-value">15,832</span>
 	<span class="meter-desc">Goal met!</span>
 	</div>
-</div>
+</div>	
+
+<script type="text/javascript">
+$( function(){
+	animateKnob('#qs-calories', 0, 75, "#ef6510");
+});
+</script>

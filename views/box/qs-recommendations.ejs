@@ -1,38 +1,133 @@
 <style type="text/css">
-.qs-item {
-	text-align: left;
-	margin-bottom: 2em;
+/*#qs-recommendations .qs-box-title {margin-bottom: 0.5em}*/
+
+#rec-list {
+	height: 160px;
+	overflow: auto;
+}
+.rec-item, .rec-item-active {
+	padding: 0.2em 1em;
+	border-top: 1px solid #ddd;
+
+	/*background: #eee;*/
+	/*border: 1px solid #ddd;*/
+	/*border-radius: 5px;*/
+	/*margin-right: 1.5em;
+	margin-left: 1.5em;
+	margin-bottom: 1em;*/
+
+}
+.rec-item-active {
+	background: #c2e188;
 }
 
-.recommendation-icon {}
-.recommendation-text {
-	font-size: 11px;
-	font-weight: 300;
-	text-align:justify;
+.rec-icon {
+	position: relative;		
+	/*border-radius: 5px;*/
+	width: 30px;
+	height: 30px;
+	/*background: #e1295a;*/
+	margin-right: 1em;
 }
-.recommendation-text a {color: #2FABE9;}
+.rec-icon p {
+	position: absolute;
+	margin: 0;
+	top:50%;
+	left:50%;
+	margin-top: -12px;
+	margin-left: -12px;
+
+	height: 24px;
+	width: 24px;
+
+}
+.rec-desc {
+	font-size: 11px;
+	text-align: justify;
+	margin: 0.4em 0;
+}
+.rec-desc a {
+	color: #2FABE9; 
+	text-decoration: none; 
+	border-bottom: 1px dotted;
+}
 
 </style>
 
-<div class="qs-box" id="qs-user-profile">
+<script type="text/javascript">
+function listTick() {
+	// $('#rec-list .rec-item:eq(0)').slideDown( function() {
+	// 	$('#rec-list .rec-item:eq(-1)').prependTo($('#rec-list'));
+	// });
+	
+
+	$('#rec-list .rec-item:eq(-1)').prependTo($('#rec-list')).toggleClass('rec-item-active');
+	$('#rec-list .rec-item:eq(0)').effect('slide', {'duration': 200,'direction': 'right'}, 
+		function () {
+			$(this).toggleClass('rec-item-active', 25000);
+		}
+	);
+
+	// $('#rec-list .rec-item:eq(0)').slideUp( function(){
+	// 	$(this).appendTo($('#rec-list'))
+	// });
+}
+setInterval(function() { listTick() }, 20000);
+
+</script>
+
+<div class="qs-box" id="qs-recommendations">
 	<div class="pure-g">
 		<div class="pure-u-1-2">		    			
 			<h4 class="qs-box-title">Recommendations</h4>
 		</div>
 	</div>
 	
-	<div class="qs-box-content">
-		<div class="qs-item recommendation-text">
-			You spend <b>30% more time</b> at <b>work</b> than average person in your age.
-		</div>		
-		<div class="qs-item recommendation-text">
-			You spent over <b>44 hours</b> in <b>public transportation</b> last month - check <a href="http://sbb.com">here</a> if you can be more efficient.
-		</div>			
-		<div class="qs-item recommendation-text">
-			Did you know you take <b>the most crowded train</b> to Geneva? Try one 30 minutes earlier on friday evening – you will enjoy it much more!
-		</div>		
-		<div class="qs-item recommendation-text">
-		<b>10 hours</b> a month <b>browsing</b> <a href="http://www.linkedin.com/">LinkedIn</a>, <b>8 hours</b> a month on <a href="http://techcrunch.com/">TechCrunch</a>, you've been <b>on-line 18 evenings</b> this month!
-		</div>		
+	<div class="pure-u-1" id="rec-list">
+		<div class="rec-item pure-g">
+			<div class="pure-u rec-icon">
+				<p class="maki-icon bus"></p>	
+			</div>
+			<div class="pure-u-5-6">
+				<p class="rec-desc">
+					You spent over <b>44 hours</b> in <b>public transportation</b> last month - check <a href="http://sbb.com">here</a> if you can be more efficient.
+				</p>				
+			</div>
+		</div>
+
+		<div class="rec-item pure-g">
+			<div class="pure-u rec-icon">
+				<p class="maki-icon industrial"></p>	
+			</div>
+			<div class="pure-u-5-6">
+				<p class="rec-desc">
+					You spend <b>30% more time</b> at <b>work</b> than average person in your age.	
+				</p>				
+			</div>
+		</div>
+
+		<div class="rec-item pure-g">
+			<div class="pure-u rec-icon">
+				<p class="maki-icon rail"></p>	
+			</div>
+			<div class="pure-u-5-6">
+				<p class="rec-desc">
+			Did you know you take <b>the most crowded train</b> to Geneva? Try one 30 minutes earlier on friday evening.
+			 <!-- – you will enjoy it much more! -->
+				</p>				
+			</div>
+		</div>
+
+		<div class="rec-item pure-g">
+			<div class="pure-u rec-icon">
+				<p class="maki-icon pitch"></p>	
+			</div>
+			<div class="pure-u-5-6">
+				<p class="rec-desc">
+			<b>10 hours</b> a month <b>browsing</b> <a href="http://www.linkedin.com/">LinkedIn</a>, <b>8 hours</b> a month on <a href="http://techcrunch.com/">TechCrunch</a>, you've been <b>on-line 18 evenings</b> this month!
+				</p>				
+			</div>
+		</div>
+
 	</div>
 </div>

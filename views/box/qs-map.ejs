@@ -10,12 +10,13 @@
 <style type="text/css">
 #map { 
 	position:absolute; 
-	width: 410px; 
+	width: 620px; 
 	height: 200px;
+    border: 1px solid white;
 }
 .leaflet-popup-content-wrapper, .leaflet-popup-tip {
-    background: rgba(255,255,255,0.8);
-    box-shadow:0 1px 2px rgba(0,0,0,0.3);
+    background: rgba(255,255,255,1);
+    box-shadow:0 2px 4px rgba(0,0,0,0.5);
 }
 .leaflet-popup-content {
     margin: 0.5em;
@@ -34,10 +35,11 @@
 
 <script type='text/javascript'>
 
-var getActivityColor = d3.scale.ordinal().range(colorbrewer.Dark2[8]);
+var getActivityColor = d3.scale.ordinal().range(colorbrewer.Set1[8]);
 
-var map = L.mapbox.map('map', 'mrastan.map-yqc0qxly')
-    .setView([46.935, 7.445], 10);
+//var map = L.mapbox.map('map', 'mrastan.map-yqc0qxly')
+var map = L.mapbox.map('map', 'mrastan.map-r6s6jvr7')
+    .setView([46.935, 7.445], 13);
 map.dragging.disable();
 
 // POI layer 
@@ -72,7 +74,7 @@ geoPath.eachLayer(function(layer) {
     patterns: [
             {offset: 0, repeat: 11, symbol: new L.Symbol.Dash({
                                                 pixelSize: 0,
-                                                pathOptions: {weight: 8, color: activity_color, opacity: 0.8}
+                                                pathOptions: {weight: 6, color: activity_color, opacity: 0.8}
                                               })}
         ]
   }).addTo(map);
@@ -82,7 +84,6 @@ geoPath.eachLayer(function(layer) {
 
 // Cycle over markers
 function cycle(markers) {
-
     var i = 0;
     function run() {
         
