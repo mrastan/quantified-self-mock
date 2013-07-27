@@ -2,15 +2,18 @@
 <html>
 
 <head>
-	<title>QS</title>
+	<title>Quantify Self</title>
 	<script src="js/jquery-1.9.0.min.js"></script>
 	<script src="js/jquery-ui.js"></script>
 	<script src="js/jquery.gridster.with-extras.js"></script>
 	<script src="js/jquery.knob.js"></script>
+	<script src="js/bootstrap.min.js"></script>
 
 	<link rel="stylesheet" type="text/css" href="css/jquery.gridster.min.css">
 	<link rel="stylesheet" type="text/css" href="css/pure-min.css"> 
 	<link rel="stylesheet" type="text/css" href="css/bootstarp-progress_bar.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstarp-modal.css">
+	
 	<!-- <link rel="stylesheet" type="text/css" href="css/animate.min.css"> -->
 
 	<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css"> 
@@ -57,7 +60,6 @@
 		}
 
 		/* Circle meter widget */
-		
 		.qs-meter .meter-unit,
 		.qs-meter .meter-value,
 		.qs-meter .meter-desc, 
@@ -74,8 +76,7 @@
 		}
 		.qs-meter .meter-icon i { 
 			left:0;
-						text-align: center;
-
+			text-align: center;
 			font-size: 42px; 
 		}		
 
@@ -93,7 +94,7 @@
 			font-size: 80%;
 		}
 
-		/* Widget upper control */ 
+ 		/* Widget upper control ====================*/
 		.qs-box-controls {			
 			text-align: right;
 		}		
@@ -112,46 +113,99 @@
 		.qs-box-controls a.ui-selected { border-top-color: #878787; }		
 		.qs-box-controls a:hover, 
 		.qs-box-controls a:focus {
-			color: #1b98f8;
-			border-top-color: #1b98f8;
+			color: #72c1b0;
+			border-top-color: #449a88;
 		}
 
-		/* Nav menu */
+		/* Nav menu =============================== */
 		.header .pure-menu {
+			padding: 0.5em;
 			border-bottom: 5px solid #CFCFCF;
+			position: relative;
 		}
 		.menu-profile {
-			right: 1em;
-			top: 1px;
 			position: absolute;						
+			right: 2em;
+			top: 50%;
+			margin-top: -1em;	
 			padding-right: 1em;
-		}
-		.menu-profile a {
-			display: inline-block;
 		}
 		
 		.menu-profile-avatar {
 			border-radius: 13px;
 			text-align: right;
 		}
+		.nav-link {
+			font-weight: 700 !important;
+			color: #3a3a3a !important;
+			font-size: 12px;
+			text-align: center;
+		}
+		.nav-link:hover
+		{
+			color: #449a88 !important;
+		}
+		.nav-link-active {
+			color: #72c1b0 !important;
+		}
+
+        .pure-button-success {
+		    color: white;
+            border-radius: 4px;
+            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+            background: #e85c41; 
+            font-weight: 700;
+        }
+
+        /* Sing up modal ==========================*/
+        #signUpModal input {
+        	font-size: 1em;
+        	border: 2px solid #2aa0b5;
+        }
+        #signUpModal  form {
+        	text-align: center;
+        }
+        #signUpModal .close { 
+        	float: right; 
+	    	margin: 5px 10px; 
+	    	text-decoration: none; 
+	    	font-size:150%;
+		}
+        #signUpModal #email {
+        	width: 50%;
+        }
+
+        .pure-sign-up-button {
+		    color: white;
+       		background: #2aa0b5;
+       		border: 1px solid #2aa0b5;
+       		border-radius: 4px;
+       		font-weight: 700;
+        }
 
 	</style>
 </head>
 
 <body>
-	<div class="container">
+	<div class="content">
+
 		<div class="header">
 	        <div class="pure-menu pure-menu-open pure-menu-horizontal">	            
-	            <a class="pure-menu-heading" href="">Life Tracker</a>	            
+	            <a class="pure-menu-heading" href="">quantify self</a>	            
 	            <ul>
-	                <li class="pure-menu-selected"><a href="#">Home</a></li>
-	                <li><a href="#">Blog</a></li>
-	                <li><a href="#">About</a></li>
-
+	                <li><a class="nav-link nav-link-active" href="#">Home</a></li>
+	                <li><a class="nav-link" href="#">Blog</a></li>
+	                <li><a class="nav-link" href="#">About</a></li>
 	            </ul>
+
+	                <button class="pure-button pure-button-success"
+	                	data-toggle="modal" data-target="#signUpModal">
+	                	Sign Up
+	                </button>
+
                <div class="menu-profile">
-	           		<a href="#">Tom  &#x25BE;</a>
-	           		<img class="menu-profile-avatar" alt="Tilo Mitra's avatar" src="images/tom-avatar.png" height="26" width="26"></img>
+	           		<a class="nav-link" href="#">Demo for Tom  &#x25BE;</a>
+	           		<!-- <img class="menu-profile-avatar" alt="Tilo Mitra's avatar" src="images/tom-avatar.png" height="26" width="26"></img> -->
                </div>
 	        </div>
 	    </div>
@@ -185,26 +239,54 @@
 			    	<% include box/qs-map %>		
 			    </li>
 
-<!-- 			    <li data-row="3" data-col="3" data-sizex="1" data-sizey="1">
-			    	<div class="qs-box pure-g">
-			    		<div class="pure-u-1">
-			    			<h4 class="qs-box-title">Your Top Apps</h4>
-			    		</div>
-			    	</div> 
-			    </li>	 -->	
-
-<!-- 				<li data-row="4" data-col="1" data-sizex="3" data-sizey="1">
-					
-				</li> -->
-
-
 			</ul>
 			</div>					
 		</div>	
-		<div>	
+		</div>
+
+
+	<div id="signUpModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+	    <a href="" class="close" data-dismiss="modal">×</a>
+
+	    <div class="modal-header">
+	        <h3>Request an invitation</h3>
+	    </div>
+
+			
+	    <div class="modal-body">
+			<p>
+	    		If you are interested in becoming a user please sign up now and we'll keep you posted.
+	    	</p>
+
+	    	<form id="signUpForm" class="pure-form" data-async data-target="#signUpModal" action="/users/register" method="POST">
+			    <fieldset>
+   			 		<input id="email" name="email" type="email" placeholder="Email">
+					 <button type="submit" class="pure-button pure-sign-up-button">Sign Up</button>
+			    </fieldset>
+			</form>
+	    </div>
+	</div>
+
 	</div>
 
 <script type="text/javascript">
+
+var signUpModalId = '#signUpModal';
+var signUpForm = $( '#signUpModal form' );
+
+signUpForm.submit( function(e) {
+    e.preventDefault(); 
+    var $this = $(this); 
+	    $.post(
+	        $this.attr("action"), 
+	        $this.serialize(),
+	        function(data) {  },
+	        "json"
+	    );
+	   
+	$( signUpModalId ).modal('hide');
+});
 
 var animateKnob = function(elmId, startVal, stopVal, color) {
 	var knobEl = $(elmId).find('.dial');
@@ -222,7 +304,6 @@ var animateKnob = function(elmId, startVal, stopVal, color) {
       	easing: 'swing',
       	step: function() {
         	knobEl.val(Math.ceil(this.value)).trigger('change');
-        	//$(elm).attr('fgColor', 'red').trigger('change');
       	}
     });
 };
@@ -238,14 +319,15 @@ $(function(){
  	$('.gridster').animate({
  		left: 0
  	}, 300);
- 	// $('.gridster').css({left:0}).addClass('animated bounceInLeft');
-
+ 
  	// UI basic elements 
 	$( "#qs-box-activity" ).selectable();
 	$( "#qs-box-profile" ).selectable();
 
+	// animate UI
 	setTimeout('listTick()', 300);
 	setTimeout('listTick()', 4000);
+	setTimeout('cycle(markerLayer.getLayers())', 5000);
 });
 
 </script>

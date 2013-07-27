@@ -39,7 +39,7 @@ var getActivityColor = d3.scale.ordinal().range(colorbrewer.Set1['qs']);
 
 //var map = L.mapbox.map('map', 'mrastan.map-yqc0qxly')
 var map = L.mapbox.map('map', 'mrastan.map-r6s6jvr7')
-    .setView([46.935, 7.445], 13);
+    .setView([46.943523869295355, 7.452249526977539], 12);
 map.dragging.disable();
 
 // POI layer 
@@ -86,15 +86,13 @@ geoPath.eachLayer(function(layer) {
 function cycle(markers) {
     var i = 0;
     function run() {
-        
         if (++i > markers.length - 1) i = 0;
+        
         markers[i].openPopup();
-
         map.setView(markers[i].getLatLng(), 13, {pan: {animate: true}, zoom: { animate: true }});
-        window.setTimeout(run, 3000);
+        
+        window.setTimeout(run, 5000);
     }
     run();
 }
-
-cycle(markerLayer.getLayers());
 </script>
