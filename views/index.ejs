@@ -8,6 +8,7 @@
 	<script src="js/jquery.gridster.with-extras.js"></script>
 	<script src="js/jquery.knob.js"></script>
 	<script src="js/bootstrap.min.js"></script>
+	<script src="js/Chart.js"></script>
 
 	<link rel="stylesheet" type="text/css" href="css/jquery.gridster.min.css">
 	<link rel="stylesheet" type="text/css" href="css/pure-min.css"> 
@@ -94,29 +95,6 @@
 			font-size: 80%;
 		}
 
- 		/* Widget upper control ====================*/
-		.qs-box-controls {			
-			text-align: right;
-		}		
-		.qs-box-controls a {
-			width: 30%;
-			text-align: center;
-			padding-top: 0.4em;			
-			font-size: 80%;
-			font-weight: 600;	
-			display: inline-block;						
-			border-top: 5px solid transparent;
-			text-decoration: none;
-			color: #333;
-		}
-		.qs-box-controls a.ui-selecting { border-top-color: #1b98f8; }
-		.qs-box-controls a.ui-selected { border-top-color: #878787; }		
-		.qs-box-controls a:hover, 
-		.qs-box-controls a:focus {
-			color: #72c1b0;
-			border-top-color: #449a88;
-		}
-
 		/* Nav menu =============================== */
 		.header .pure-menu {
 			padding: 0.5em;
@@ -183,6 +161,29 @@
        		font-weight: 700;
         }
 
+ 		/* Widget upper control ====================*/
+		.qs-box-controls {			
+			text-align: right;
+		}		
+		.qs-box-controls a {
+			width: 30%;
+			text-align: center;
+			padding-top: 0.4em;			
+			font-size: 80%;
+			font-weight: 600;	
+			display: inline-block;						
+			border-top: 5px solid transparent;
+			text-decoration: none;
+			color: #333;
+		}
+		.qs-box-controls a.ui-selecting { border-top-color: #1b98f8; }
+		.qs-box-controls a.ui-selected { border-top-color: #1fc090; color: #1b9e77; }		
+		.qs-box-controls a:hover, 
+		.qs-box-controls a:focus {
+			color: #1b9e77;
+			border-top-color: #1b9e77;
+		}
+
 	</style>
 </head>
 
@@ -226,11 +227,8 @@
 			    <li data-row="2" data-col="2" data-sizex="1" data-sizey="1">
 					<% include box/qs-distance %>					
 			    </li>			   
-				<li data-row="3" data-col="3" data-sizex="1" data-sizey="1">
+				<li data-row="3" data-col="3" data-sizex="2" data-sizey="1">
 					<% include box/qs-life-balance %>
-			    </li>
-			    <li data-row="2" data-col="5" data-sizex="1" data-sizey="1">
-			    	<% include box/qs-activities-breakedown %>
 			    </li>
 			    <li data-row="2" data-col="3" data-sizex="2" data-sizey="1">
 			    	<% include box/qs-recommendations %>
@@ -238,7 +236,12 @@
 			     <li data-row="1" data-col="3" data-sizex="3" data-sizey="1">
 			    	<% include box/qs-map %>		
 			    </li>
-
+			    <li data-row="2" data-col="5" data-sizex="1" data-sizey="1">
+			    	<% include box/qs-online-breakedown %>
+			    </li>
+<!-- 			    <li data-row="3" data-col="5" data-sizex="1" data-sizey="1">
+			    	<% include box/qs-activities-breakedown %>
+			    </li> -->
 			</ul>
 			</div>					
 		</div>	
