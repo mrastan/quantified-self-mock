@@ -73,16 +73,29 @@
           animation: progress-bar-stripes 2s linear infinite;
 }
 
+.progress-faltui .bar,
+.progress .bar-flatui {
+  background-color: #1b9e77;
+  background-image: -moz-linear-gradient(top, #1b9e77, #1b9e77);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#1b9e77), to(#1b9e77));
+  background-image: -webkit-linear-gradient(top, #1b9e77, #1b9e77);
+  background-image: -o-linear-gradient(top, #1b9e77, #1b9e77);
+  background-image: linear-gradient(to bottom, #1eb88b, #1b9e77);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff1b9e77', endColorstr='#ff1b9e77', GradientType=0);
+}
+
+
 .progress-danger .bar,
 .progress .bar-danger {
-  background-color: #dd514c;
-  background-image: -moz-linear-gradient(top, #ee5f5b, #c43c35);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ee5f5b), to(#c43c35));
-  background-image: -webkit-linear-gradient(top, #ee5f5b, #c43c35);
-  background-image: -o-linear-gradient(top, #ee5f5b, #c43c35);
-  background-image: linear-gradient(to bottom, #ee5f5b, #c43c35);
+  background-color: #dd8850;
+  background-image: -moz-linear-gradient(top, #e28026, #c43c35);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#e28026), to(#fd2905));
+  background-image: -webkit-linear-gradient(top, #e28026, #fd2905);
+  background-image: -o-linear-gradient(top, #e28026, #fd2905);
+  background-image: linear-gradient(to bottom, #e28026, #fd2905);
   background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffee5f5b', endColorstr='#ffc43c35', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffe28026', endColorstr='#fffd2905', GradientType=0);
 }
 
 .progress-danger.progress-striped .bar,

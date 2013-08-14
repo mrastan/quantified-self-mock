@@ -11,6 +11,8 @@ var qs_poi_bern = [
     properties: {
         title: 'Sport',
         description: '',
+        'time': '1h 10 min',
+        'timeColor' : "#ec862d",
         "marker-symbol": "pitch",
         'marker-size': 'medium',
         'marker-color': '#00ccae'
@@ -28,6 +30,8 @@ var qs_poi_bern = [
     properties: {
         title: 'Home',
         description: '',
+        'time': '7h 30 min',
+        'timeColor' : "#fd2905",
         "marker-symbol": "building",
         'marker-size': 'medium',
         'marker-color': '#00ccae'
@@ -45,6 +49,8 @@ var qs_poi_bern = [
     properties: {
         title: 'Grocery',
         description: '',
+        'time': '30 min',
+        'timeColor' : "#8ac726",
         "marker-symbol": "grocery",
         'marker-size': 'medium',
         'marker-color': '#00ccae'
@@ -62,6 +68,8 @@ var qs_poi_bern = [
     properties: {
         title: 'Office',
         description: '',
+        'time': '9h 10 min',
+        'timeColor' : "#fd2905",        
         "marker-symbol": "industrial",
         'marker-size': 'medium',
         'marker-color': '#00ccae'
@@ -79,6 +87,8 @@ var qs_poi_bern = [
     properties: {
         title: 'Sport',
         description: '',
+        'time': '45 min',
+        'timeColor' : "#8ac726",        
         "marker-symbol": "tennis",
         'marker-size': 'medium',
         'marker-color': '#00ccae'
@@ -96,6 +106,8 @@ var qs_poi_bern = [
     properties: {
         title: 'Cafe',
         description: '',
+        'time': '45 min',
+        'timeColor' : "#8ac726",
         "marker-symbol": "cafe",
         'marker-size': 'medium',
         'marker-color': '#00ccae'

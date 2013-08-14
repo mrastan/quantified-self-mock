@@ -1,34 +1,50 @@
 <style type="text/css">
 /*#qs-recommendations .qs-box-title {margin-bottom: 0.5em}*/
 
+#qs-recommendations-popup {
+	position: absolute;
+	top:10px;
+	right:5px;
+	z-index:100;
+}
+
 #rec-list {
+	width: 350px;
 	height: 160px;
 	overflow: auto;
-/*	border-left: 1px solid rgba(24, 183, 105, 1);
-	margin-left: 1em;*/
 }
-.rec-item, .rec-item-active {
-	padding: 0.1em 1em;
-	/*border-top: 1px solid #ddd;*/
 
-	/*background: #eee;*/
+.rec-item, .rec-item-active {
+	opacity: 0.6;
 	border: 1px solid rgba(24, 183, 105, 1);
+	/*border: 1px solid #ccc;*/
+	background: rgba(240, 242, 244, 1);
+	color: rgba(51, 51, 51, 1);
+	
+	padding: 0.1em 1em;		
 	border-radius: 5px;
 	margin-right: 1em;
 	margin-left: 1em;
 	margin-bottom: 0.4em;
 
+	box-shadow: 0 5px 5px rgba(0,0,0,0.3);
+	display: none;
+
 }
 .rec-item-active {
-	background: rgba(24, 183, 105, 0.4); 
-	/*#c2e188;*/
+	opacity: 0.95;
+	/*border: 1px solid rgba(24, 183, 105, 1);
+	background: rgba(250, 250, 250, 1); 
+	color: rgba(51, 51, 51, 1);*/
+	/*box-shadow: 0 5px 5px rgba(0,0,0,0.1);*/
+	display: block;
 }
 
 .rec-icon {
 	position: relative;		
 	/*border-radius: 5px;*/
 	width: 30px;
-	height: 30px;
+	height: 50px;
 	/*background: #e1295a;*/
 	margin-right: 1em;
 }
@@ -46,6 +62,7 @@
 }
 .rec-desc {
 	font-size: 11px;
+	text-shadow: 1px 1px 1px rgba(255,255,255, .5); 
 	text-align: justify;
 	margin: 0.4em 0;
 }
@@ -67,7 +84,7 @@ function listTick() {
 	$('#rec-list .rec-item:eq(-1)').prependTo($('#rec-list')).toggleClass('rec-item-active');
 	$('#rec-list .rec-item:eq(0)').effect('slide', {'duration': 200,'direction': 'right'}, 
 		function () {
-			$(this).toggleClass('rec-item-active', 25000);
+			$(this).toggleClass('rec-item-active', 10000);
 		}
 	);
 
@@ -75,16 +92,11 @@ function listTick() {
 	// 	$(this).appendTo($('#rec-list'))
 	// });
 }
-setInterval(function() { listTick() }, 20000);
+setInterval(function() { listTick() }, 15000);
 
 </script>
 
-<div class="qs-box" id="qs-recommendations">
-	<div class="pure-g">
-		<div class="pure-u-1">		    			
-			<h4 class="qs-box-title">Recommendations</h4>
-		</div>
-	</div>
+<div class="pure-g" id="qs-recommendations-popup">
 	
 	<div class="pure-u-1" id="rec-list">
 		<div class="rec-item pure-g">

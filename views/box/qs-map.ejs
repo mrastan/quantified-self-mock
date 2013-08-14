@@ -1,7 +1,5 @@
 <script src='http://api.tiles.mapbox.com/mapbox.js/v1.3.1/mapbox.js'></script>
 <script src='js/leaflet.polylineDecorator.min.js'></script>
-<script src="js/d3.v3.min.js"></script>
-<script src="js/colorbrewer.js"></script>
 <link href='http://api.tiles.mapbox.com/mapbox.js/v1.3.1/mapbox.css' rel='stylesheet' />
 
 <script src='data/qs_poi_bern.js'></script>
@@ -28,6 +26,9 @@
 .popup h3 {
     margin: 0.5em;
 }
+.popup span {
+    font-size: 10px;
+}
 
 </style>
 
@@ -48,11 +49,14 @@ markerLayer.on('layeradd', function(e) {
     var marker = e.layer,
         feature = marker.feature,
         coor = feature.geometry.coordinates;
-        //img_url = 'http://maps.googleapis.com/maps/api/streetview?size=600x160&location=' + coor[1] + ',%20' + coor[0] + '&sensor=false' 
+        //img_url = 'http://maps.googleapis.com/maps/api/streetview?size=100x60&location=' + coor[1] + ',%20' + coor[0] + '&sensor=false' 
 
     var popupContent =  '<div class="popup">' +
                         //'<img src="' + img_url + '">' +
-                        '   <h3>' + feature.properties.title + '</h3>' +
+                        '<h3>' + 
+                        feature.properties.title + 
+                        '  <span style="color:' + feature.properties.timeColor + '">' + feature.properties.time + '</span>' + 
+                        '</h3>' +
                         '</div>';
 
     marker.bindPopup(popupContent,{
@@ -74,7 +78,7 @@ geoPath.eachLayer(function(layer) {
     patterns: [
             {offset: 0, repeat: 11, symbol: new L.Symbol.Dash({
                                                 pixelSize: 0,
-                                                pathOptions: {weight: 6, color: activity_color, opacity: 0.8}
+                                                pathOptions: {weight: 7, color: activity_color, opacity: 0.8}
                                               })}
         ]
   }).addTo(map);
