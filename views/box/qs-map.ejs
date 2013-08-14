@@ -9,7 +9,7 @@
 #map { 
 	position:absolute; 
 	width: 620px; 
-	height: 200px;
+	height: 410px;
     border: 1px solid white;
 }
 .leaflet-popup-content-wrapper, .leaflet-popup-tip {
@@ -93,7 +93,7 @@ function cycle(markers) {
         if (++i > markers.length - 1) i = 0;
         
         markers[i].openPopup();
-        map.setView(markers[i].getLatLng(), 13, {pan: {animate: true}, zoom: { animate: true }});
+        map.setView(markers[i].getLatLng(), 14, {pan: {animate: true}, zoom: { animate: true }});
         
         window.setTimeout(run, 5000);
     }
