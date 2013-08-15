@@ -14,13 +14,24 @@
   shape-rendering: crispEdges;
 }
 
-.bar {
-  fill: rgb(24, 193, 155);
+.bar, .bar-active {
+  fill: rgb(160,160,160);
   fill-opacity: .9;
 }
+.bar-active {
+  fill: rgb(24, 193, 155);
+  fill-opacity: 1;
+}
 
-.x.axis path {
+.x.axis path,
+.x.axis line {
   display: none;
+}
+
+.vline {
+  stroke: rgb(24, 193, 155);
+  stroke-width: 2;
+  stroke-dasharray: 5,5;
 }
 
 label {
@@ -105,7 +116,7 @@ var radarChart = new Chart(ctx).Radar(radarChartData, radarChartOptions);
 var filename = 'data/weekday-stats.tsv'
 
 var margin = {top: 20, right: 20, bottom: 30, left: 40},
-    width = 420 - margin.left - margin.right,
+    width = 430 - margin.left - margin.right,
     height = 175 - margin.top - margin.bottom;
 
 var formatPercent = d3.format(".0%");
@@ -152,22 +163,38 @@ d3.tsv(filename, function(error, data) {
       .attr("y", 6)
       .attr("dy", ".71em")
       .style("text-anchor", "end")
-      .text("Frequency");
+      .text("Percentage");
+      
+  svg.append("line")
+    .attr("class", "vline")
+    .attr("x1", x("7.5") -1)
+    .attr("x2", x("7.5") -1)
+    .attr("y1", y(1))
+    .attr("y1", y(0))    
+
+  svg.append("line")
+    .attr("class", "vline")
+    .attr("x1", x("9") -1)
+    .attr("x2", x("9") -1)
+    .attr("y1", y(1))
+    .attr("y1", y(0))
+
 
   svg.selectAll(".bar")
       .data(data)
     .enter().append("rect")
-      .attr("class", "bar")
+      .attr("class", function(d) { return d.active == 0 ? "bar" : "bar-active"})
       .attr("x", function(d) { return x(d.letter); })
       .attr("width", x.rangeBand())
       .attr("y", function(d) { return y(d.frequency); })
-      .attr("height", function(d) { return height - y(d.frequency); });
+      .attr("height", function(d) { return height - y(d.frequency); })
+      .attr("rx", 2);
 
   d3.select("input").on("change", change);
 
-//  var sortTimeout = setTimeout(function() {
-//    d3.select("input").property("checked", true).each(change);
-//  }, 2000);
+ // var sortTimeout = setTimeout(function() {
+ //   d3.select("input").property("checked", true).each(change);
+ // }, 2000);
 
   function change() {
     clearTimeout(sortTimeout);
