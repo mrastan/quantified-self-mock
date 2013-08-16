@@ -1,11 +1,7 @@
 <!DOCTYPE html>
 <html>
 
-<!-- TODO add fitbit like bar plot e.g. Mon, Tue, ... or Bell curve -->
-<!-- TODO animate between tabs of bar plot -->
-<!-- TODO unify color - flatUI -->
-<!-- TODO labels on map more interactive -->
-<!-- TODO hello box with better colors -->
+<!-- TODO labels on map more interactive - panel on th bottom with stats about current position -->
 
 <head>
 	<title>Quantify Self</title>
@@ -235,6 +231,20 @@
 			    	<% include box/qs-user-profile %>
 			    </li>
 
+				<li data-row="3" data-col="3" data-sizex="3" data-sizey="1">
+					<% include box/qs-benchmark %>
+			    </li>
+
+			    
+				
+
+
+			    <li data-row="1" data-col="3" data-sizex="3" data-sizey="2">
+			    	<% include box/qs-map %>
+			    </li>
+				<li data-row="3" data-col="2" data-sizex="1" data-sizey="1">
+			    	<% include box/qs-online-flatui %>
+			    </li>
 			    <li data-row="2" data-col="2" data-sizex="1" data-sizey="1">
 			    	<% include box/qs-calories %>
 			    </li>
@@ -242,17 +252,7 @@
 					<% include box/qs-distance %>					
 			    </li>			   
 
-			    <li data-row="3" data-col="2" data-sizex="1" data-sizey="1">
-			    	<% include box/qs-online-flatui %>
-			    </li>
 
-			     <li data-row="1" data-col="3" data-sizex="3" data-sizey="2">
-			    	<% include box/qs-map %>
-			    </li>
-
-				<li data-row="3" data-col="3" data-sizex="3" data-sizey="1">
-					<% include box/qs-benchmark %>
-			    </li>
 			</ul>
 			</div>					
 		</div>	
