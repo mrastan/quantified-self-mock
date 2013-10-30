@@ -1,0 +1,70 @@
+<script src="js/d3.v3.min.js"></script>
+<script src="js/colorbrewer.js"></script>
+
+
+<div class="qs-box" id="qs-life-balance"> 
+	<h4 class="qs-box-title">Active vs Sedentary</h4>		    			
+	<div class="qs-box-content qs-meter">
+
+	</div>
+</div>
+
+<script type="text/javascript">
+
+var width = 140,
+    height = 140,
+    radius = Math.min(width, height) / 2;
+
+var color = d3.scale.ordinal()
+    .range(colorbrewer.Dark2[8]);
+
+var arc = d3.svg.arc()
+    .outerRadius(radius - 20)
+    .innerRadius(radius - 30);
+
+var pie = d3.layout.pie()
+    .sort(null)
+    .value(function(d) { return d.population; });
+
+var svg = d3.select("#qs-life-balance .qs-box-content").append("svg")
+    .attr("width", width)
+    .attr("height", height)
+  .append("g")
+    .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+
+d3.csv("data/test.csv", function(error, data) {
+
+  data.forEach(function(d) {
+    d.population = +d.population;
+  });
+
+  var g = svg.selectAll(".arc")
+      .data(pie(data))
+    .enter().append("g")
+      .attr("class", "arc");
+
+  g.append("path")
+      .attr("d", arc)
+      .style("fill", function(d) { return color(d.data.age); });
+
+  g.append("text")
+      .attr("transform", function(d) { 
+        return "translate(" + ( (radius - 12) * Math.sin( ((d.endAngle - d.startAngle) / 2) + d.startAngle ) ) + "," + ( -1 * (radius - 12) * Math.cos( ((d.endAngle - d.startAngle) / 2) + d.startAngle ) ) + ")"; })
+      .attr("dy", ".35em")
+      .style("text-anchor", function(d) {
+        var rads = ((d.endAngle - d.startAngle) / 2) + d.startAngle;
+        if ( (rads > 7 * Math.PI / 4 && rads < Math.PI / 4) || (rads > 3 * Math.PI / 4 && rads < 5 * Math.PI / 4) ) {
+          return "middle";
+        } else if (rads >= Math.PI / 4 && rads <= 3 * Math.PI / 4) {
+          return "start";
+        } else if (rads >= 5 * Math.PI / 4 && rads <= 7 * Math.PI / 4) {
+          return "end";
+        } else {
+          return "middle";
+        }
+      })
+      .text(function(d) { 
+        return d.data.age; });
+
+});
+</script>
