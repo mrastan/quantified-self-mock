@@ -193,6 +193,35 @@
 			border-top-color: #1b9e77;
 		}
 
+		/* Footer ================================*/
+		.footer {
+			background: #fff;
+			opacity: 0.5;
+			z-index: 100;
+			position: fixed;
+			font-size: 12px;
+
+			bottom: 0px;
+			height: 2em;
+			width: 100%;
+			border-top: 5px solid #CFCFCF;
+			
+			text-align: right;
+			font-weight: 200;
+			padding-top: 0.5em;
+
+		}
+
+		.footer .author {
+			padding: 0em 1em;
+			color: #000;
+			opacity: 1.0;
+		}
+
+		.footer .author a {
+			text-decoration: none;
+			color: #27a8e0;
+		}
 	</style>
 </head>
 
@@ -218,40 +247,43 @@
 	           		<!-- <img class="menu-profile-avatar" alt="Tilo Mitra's avatar" src="images/tom-avatar.png" height="26" width="26"></img> -->
                </div>
 	        </div>
-	    </div>
+	  </div>
 
-	    <div class="pure-g" id="dashboard">	    		    	
+		<div class="footer">
+			<div class="author">
+				source: <a href="https://github.com/mrastan/quantified-self-mock"><i class="icon-github-sign"></i><b> github</b></a>  
+				 author: <a href="https://twitter.com/m_rastan"><i class="icon-twitter-sign"></i> <b>@m_rastan</b></a>
+			</div>
+		</div>
+
+	  <div class="pure-g" id="dashboard">	    		    	
 		<div class="pure-u-1">			
 			<% include box/qs-recommendations-popup %>		
 
 			<div class="gridster">
-			<ul>
-			
+			<ul>			
 				<li data-row="1" data-col="1" data-sizex="2" data-sizey="1">
 			    	<% include box/qs-user-profile %>
-			    </li>
+			  </li>
 
 				<li data-row="3" data-col="3" data-sizex="3" data-sizey="1">
 					<% include box/qs-benchmark %>
-			    </li>
+			  </li>
 
-			    
-				
-
-
-			    <li data-row="1" data-col="3" data-sizex="3" data-sizey="2">
+			  <li data-row="1" data-col="3" data-sizex="3" data-sizey="2">
 			    	<% include box/qs-map %>
-			    </li>
+			  </li>
+
 				<li data-row="3" data-col="2" data-sizex="1" data-sizey="1">
 			    	<% include box/qs-online-flatui %>
-			    </li>
-			    <li data-row="2" data-col="2" data-sizex="1" data-sizey="1">
-			    	<% include box/qs-calories %>
-			    </li>
-			    <li data-row="2" data-col="1" data-sizex="1" data-sizey="1">
+			  </li>
+				<li data-row="2" data-col="2" data-sizex="1" data-sizey="1">
+			    <% include box/qs-calories %>
+			  </li>
+			  
+			  <li data-row="2" data-col="1" data-sizex="1" data-sizey="1">
 					<% include box/qs-distance %>					
-			    </li>			   
-
+			  </li>			   
 
 			</ul>
 			</div>					
